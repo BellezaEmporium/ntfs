@@ -10,7 +10,7 @@ use crate::io;
 use crate::io::Read;
 
 macro_rules! iter_try {
-    ($e:expr) => {
+    ($e:expr_2021) => {
         match $e {
             Ok(x) => x,
             Err(e) => return Some(Err(e.into())),
