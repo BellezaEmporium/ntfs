@@ -15,16 +15,16 @@ categories = ["filesystem", "no-std", "os::windows-apis", "parser-implementation
 
 [dependencies]
 arrayvec = { version = "0.7.8", default-features = false }
-bitflags = "2.13.1"
+bitflags = "2.13.2"
 chrono = { version = "0.4.45", default-features = false, optional = true }
 derive_more = { version = "2.1.1", default-features = false, features = ["display", "from"] }
 enumn = "0.1.14"
 memoffset = "0.9.1"
 nt-string = { version = "0.1.2", features = ["alloc"], default-features = false }
 strum_macros = "0.28.0"
-thiserror = { version = "2.0.20", default-features = false }
+thiserror = { version = "2.0.21", default-features = false }
 time = { version = "0.3.55", features = ["large-dates", "macros"], default-features = false, optional = true }
-zerocopy = { version = "0.8.56", features = ["derive"] }
+zerocopy = { version = "0.8.62", features = ["derive"] }
 
 [dev-dependencies]
 anyhow = "1.0.104"
