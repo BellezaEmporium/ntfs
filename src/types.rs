@@ -9,7 +9,7 @@ use core::ops::{Add, AddAssign};
 
 use derive_more::{Binary, Display, From, LowerHex, Octal, UpperHex};
 use zerocopy::byteorder::LittleEndian;
-use zerocopy::{FromBytes, Immutable, KnownLayout, Unaligned, I64, U64};
+use zerocopy::{FromBytes, I64, Immutable, KnownLayout, U64, Unaligned};
 
 use crate::error::{NtfsError, Result};
 use crate::ntfs::Ntfs;

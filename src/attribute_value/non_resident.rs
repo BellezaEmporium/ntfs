@@ -383,12 +383,14 @@ impl<'n, 'f> Iterator for NtfsDataRuns<'n, 'f> {
                 cluster_count,
             }));
         }
-        let allocated_size = iter_try!(cluster_count
-            .checked_mul(self.ntfs.cluster_size() as u64)
-            .ok_or_else(|| NtfsError::InvalidClusterCountInDataRunHeader {
-                position: NtfsDataRuns::position(self),
-                cluster_count,
-            }));
+        let allocated_size = iter_try!(
+            cluster_count
+                .checked_mul(self.ntfs.cluster_size() as u64)
+                .ok_or_else(|| NtfsError::InvalidClusterCountInDataRunHeader {
+                    position: NtfsDataRuns::position(self),
+                    cluster_count,
+                })
+        );
         i += cluster_count_byte_count as usize;
 
         // The upper nibble indicates the length of the following VCN variable length integer.

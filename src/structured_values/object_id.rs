@@ -4,8 +4,8 @@
 use crate::attribute::NtfsAttributeType;
 use crate::attribute_value::{NtfsAttributeValue, NtfsResidentAttributeValue};
 use crate::error::{NtfsError, Result};
-use crate::guid::{NtfsGuid, GUID_SIZE};
-use crate::helpers::{read_pod, ReadOnlyCursor};
+use crate::guid::{GUID_SIZE, NtfsGuid};
+use crate::helpers::{ReadOnlyCursor, read_pod};
 use crate::io::{Read, Seek};
 use crate::structured_values::{
     NtfsStructuredValue, NtfsStructuredValueFromResidentAttributeValue,

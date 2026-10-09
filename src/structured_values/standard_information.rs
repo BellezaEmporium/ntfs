@@ -1,12 +1,12 @@
 // Copyright 2021-2026 Colin Finck <colin@reactos.org>
 // SPDX-License-Identifier: MIT OR Apache-2.0
 
-use zerocopy::{FromBytes, Immutable, KnownLayout, LittleEndian, Unaligned, U32, U64};
+use zerocopy::{FromBytes, Immutable, KnownLayout, LittleEndian, U32, U64, Unaligned};
 
 use crate::attribute::NtfsAttributeType;
 use crate::attribute_value::{NtfsAttributeValue, NtfsResidentAttributeValue};
 use crate::error::{NtfsError, Result};
-use crate::helpers::{read_pod, ReadOnlyCursor};
+use crate::helpers::{ReadOnlyCursor, read_pod};
 use crate::io::{Read, Seek};
 use crate::structured_values::{
     NtfsFileAttributeFlags, NtfsStructuredValue, NtfsStructuredValueFromResidentAttributeValue,

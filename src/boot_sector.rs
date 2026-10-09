@@ -3,12 +3,10 @@
 
 use core::ops::RangeInclusive;
 
-use memoffset::offset_of;
-
 use crate::error::{NtfsError, Result};
-use crate::types::{Lcn, NtfsPosition};
+use crate::types::Lcn;
 use zerocopy::byteorder::LittleEndian;
-use zerocopy::{FromBytes, Immutable, KnownLayout, Unaligned, U16, U32, U64};
+use zerocopy::{FromBytes, Immutable, KnownLayout, U16, U32, U64, Unaligned};
 
 // Sources:
 // - https://en.wikipedia.org/wiki/NTFS#Partition_Boot_Sector_(VBR)

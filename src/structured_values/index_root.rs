@@ -9,7 +9,7 @@ use crate::attribute::NtfsAttributeType;
 use crate::attribute_value::{NtfsAttributeValue, NtfsResidentAttributeValue};
 use crate::error::{NtfsError, Result};
 use crate::index_entry::{IndexNodeEntryRanges, NtfsIndexNodeEntries};
-use crate::index_record::{IndexNodeHeader, INDEX_NODE_HEADER_SIZE};
+use crate::index_record::{INDEX_NODE_HEADER_SIZE, IndexNodeHeader};
 use crate::indexes::NtfsIndexEntryType;
 use crate::io::{Read, Seek};
 use crate::structured_values::{

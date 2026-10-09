@@ -153,10 +153,11 @@ impl<'n, 'f> NtfsIndexRecords<'n, 'f> {
         ));
 
         // Advance our iterator to the next record.
-        iter_try!(self
-            .index_allocation
-            .value
-            .seek(fs, SeekFrom::Current(self.index_record_size as i64)));
+        iter_try!(
+            self.index_allocation
+                .value
+                .seek(fs, SeekFrom::Current(self.index_record_size as i64))
+        );
 
         Some(Ok(record))
     }

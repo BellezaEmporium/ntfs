@@ -3,7 +3,7 @@
 
 use core::fmt;
 
-use zerocopy::{FromBytes, Immutable, KnownLayout, LittleEndian, Unaligned, U16, U32};
+use zerocopy::{FromBytes, Immutable, KnownLayout, LittleEndian, U16, U32, Unaligned};
 
 /// Size of a single GUID on disk (= size of all GUID fields).
 pub(crate) const GUID_SIZE: usize = 16;

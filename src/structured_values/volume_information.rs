@@ -4,12 +4,12 @@
 use core::fmt;
 
 use bitflags::bitflags;
-use zerocopy::{FromBytes, Immutable, KnownLayout, LittleEndian, Unaligned, U16, U64};
+use zerocopy::{FromBytes, Immutable, KnownLayout, LittleEndian, U16, U64, Unaligned};
 
 use crate::attribute::NtfsAttributeType;
 use crate::attribute_value::{NtfsAttributeValue, NtfsResidentAttributeValue};
 use crate::error::{NtfsError, Result};
-use crate::helpers::{read_pod, ReadOnlyCursor};
+use crate::helpers::{ReadOnlyCursor, read_pod};
 use crate::io::{Read, Seek};
 use crate::structured_values::{
     NtfsStructuredValue, NtfsStructuredValueFromResidentAttributeValue,

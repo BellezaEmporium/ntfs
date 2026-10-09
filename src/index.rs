@@ -171,9 +171,9 @@ where
                         ));
                     let index_allocation_attribute =
                         iter_try!(index_allocation_item.to_attribute());
-                    let index_allocation =
-                        iter_try!(index_allocation_attribute
-                            .structured_value::<_, NtfsIndexAllocation>(fs));
+                    let index_allocation = iter_try!(
+                        index_allocation_attribute.structured_value::<_, NtfsIndexAllocation>(fs)
+                    );
 
                     let subnode = iter_try!(index_allocation.record_from_vcn(
                         fs,

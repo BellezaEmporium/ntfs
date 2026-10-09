@@ -1,7 +1,7 @@
 // Copyright 2021-2026 Colin Finck <colin@reactos.org>
 // SPDX-License-Identifier: MIT OR Apache-2.0
 
-use zerocopy::{FromBytes, Immutable, KnownLayout, LittleEndian, Unaligned, U64};
+use zerocopy::{FromBytes, Immutable, KnownLayout, LittleEndian, U64, Unaligned};
 
 /// Difference in 100-nanosecond intervals between the Windows/NTFS epoch (1601-01-01) and the Unix epoch (1970-01-01).
 #[cfg(any(feature = "chrono", feature = "time", feature = "std"))]

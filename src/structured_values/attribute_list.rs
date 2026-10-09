@@ -5,14 +5,14 @@ use core::mem;
 
 use arrayvec::ArrayVec;
 use nt_string::u16strle::U16StrLe;
-use zerocopy::{FromBytes, Immutable, KnownLayout, LittleEndian, Unaligned, U16, U32};
+use zerocopy::{FromBytes, Immutable, KnownLayout, LittleEndian, U16, U32, Unaligned};
 
 use crate::attribute::{NtfsAttribute, NtfsAttributeType};
 use crate::attribute_value::{NtfsAttributeValue, NtfsNonResidentAttributeValue};
 use crate::error::{NtfsError, Result};
 use crate::file::NtfsFile;
 use crate::file_reference::NtfsFileReference;
-use crate::helpers::{read_pod, ReadOnlyCursor};
+use crate::helpers::{ReadOnlyCursor, read_pod};
 use crate::io::{Read, Seek, SeekFrom};
 use crate::ntfs::Ntfs;
 use crate::structured_values::NtfsStructuredValue;

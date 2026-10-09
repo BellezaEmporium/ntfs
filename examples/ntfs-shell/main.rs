@@ -8,16 +8,16 @@ use std::fs::{File, OpenOptions};
 use std::io;
 use std::io::{BufReader, Read, Seek, Write};
 
-use anyhow::{anyhow, bail, Context, Result};
+use anyhow::{Context, Result, anyhow, bail};
 use ntfs::attribute_value::NtfsAttributeValue;
 use ntfs::indexes::NtfsFileNameIndex;
 use ntfs::structured_values::{
     NtfsAttributeList, NtfsFileName, NtfsFileNamespace, NtfsStandardInformation,
 };
 use ntfs::{Ntfs, NtfsAttribute, NtfsAttributeType, NtfsFile, NtfsReadSeek};
+use time::OffsetDateTime;
 use time::format_description::FormatItem;
 use time::macros::format_description;
-use time::OffsetDateTime;
 
 use sector_reader::SectorReader;
 
@@ -533,14 +533,18 @@ fn help(arg: &str) -> Result<()> {
         "attr" => {
             println!("Usage: attr FILE");
             println!();
-            println!("Shows the structure of all NTFS attributes of a single file, not including their data runs.");
+            println!(
+                "Shows the structure of all NTFS attributes of a single file, not including their data runs."
+            );
             println!("Try \"attr_runs\" if you are also interested in Data Run information.");
             help_file("attr");
         }
         "attr_runs" => {
             println!("Usage: attr_runs FILE");
             println!();
-            println!("Shows the structure of all NTFS attributes of a single file, including their data runs.");
+            println!(
+                "Shows the structure of all NTFS attributes of a single file, including their data runs."
+            );
             println!("Try \"attr\" if you don't need the Data Run information.");
             help_file("attr_runs");
         }
@@ -548,7 +552,9 @@ fn help(arg: &str) -> Result<()> {
             println!("Usage: cd SUBDIRECTORY");
             println!();
             println!("Changes the current directory to SUBDIRECTORY.");
-            println!("This implementation of \"cd\" only supports subdirectories of the current directory.");
+            println!(
+                "This implementation of \"cd\" only supports subdirectories of the current directory."
+            );
             println!("\"cd ..\" moves back into the parent directory.");
         }
         "dir" => {
@@ -569,8 +575,12 @@ fn help(arg: &str) -> Result<()> {
             println!("  get FILE");
             println!("  get FILE:STREAM");
             println!();
-            println!("Copies the data of a single file from the NTFS filesystem to the current directory of your local filesystem.");
-            println!("Optionally, you can append a colon and a data stream name to copy a specific data stream of that file.");
+            println!(
+                "Copies the data of a single file from the NTFS filesystem to the current directory of your local filesystem."
+            );
+            println!(
+                "Optionally, you can append a colon and a data stream name to copy a specific data stream of that file."
+            );
             println!();
             println!("This command will fail if the file already exists in the current directory.");
             help_file("get");
@@ -578,7 +588,9 @@ fn help(arg: &str) -> Result<()> {
         _ => {
             println!("Available Commands:");
             println!("  attr      - Show structure of NTFS attributes of a particular file");
-            println!("  attr_runs - Show structure of NTFS attributes of a particular file, including data runs");
+            println!(
+                "  attr_runs - Show structure of NTFS attributes of a particular file, including data runs"
+            );
             println!("  cd        - Change the current directory");
             println!("  dir       - Show files of the current directory");
             println!("  exit      - Quit ntfs-shell");
@@ -601,12 +613,16 @@ fn help_file(command: &str) {
     println!();
     println!("FILE can have one of the following formats:");
     println!("  ● A name of a file in the current directory.");
-    println!("    Enter the filename as is, including any spaces. Don't put it into additional quotation marks.");
+    println!(
+        "    Enter the filename as is, including any spaces. Don't put it into additional quotation marks."
+    );
     println!("    Examples:");
     println!("      ○ {command} ntoskrnl.exe");
     println!("      ○ {command} File with spaces.exe");
     println!("  ● A File Record Number anywhere on the filesystem.");
-    println!("    This is indicated through a leading slash (/). A hexadecimal File Record Number is indicated via 0x.");
+    println!(
+        "    This is indicated through a leading slash (/). A hexadecimal File Record Number is indicated via 0x."
+    );
     println!("    Examples:");
     println!("      ○ {command} /5");
     println!("      ○ {command} /0xa299");

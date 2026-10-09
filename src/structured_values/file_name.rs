@@ -6,13 +6,13 @@ use core::mem;
 use arrayvec::ArrayVec;
 use enumn::N;
 use nt_string::u16strle::U16StrLe;
-use zerocopy::{FromBytes, Immutable, KnownLayout, LittleEndian, Unaligned, U32, U64};
+use zerocopy::{FromBytes, Immutable, KnownLayout, LittleEndian, U32, U64, Unaligned};
 
 use crate::attribute::NtfsAttributeType;
 use crate::attribute_value::NtfsAttributeValue;
 use crate::error::{NtfsError, Result};
 use crate::file_reference::NtfsFileReference;
-use crate::helpers::{read_pod, ReadOnlyCursor};
+use crate::helpers::{ReadOnlyCursor, read_pod};
 use crate::indexes::NtfsIndexEntryKey;
 use crate::io::{Read, Seek};
 use crate::structured_values::{NtfsFileAttributeFlags, NtfsStructuredValue};
